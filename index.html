@@ -17,23 +17,16 @@
 
     body,
     html {
-      /* height: 100%; */
+      height: 100%;
       overflow: hidden;
-      background-color: red;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .video-container {
       position: fixed;
       top: 0;
       left: 0;
-      border:2px solid red;
-      width: 100vw;
-      height: 100vh;
-      /* width: 100%; */
-      /* height: 100%; */
+      width: 100%;
+      height: 100%;
       background-color: black;
       display: flex;
       align-items: center;
@@ -42,8 +35,8 @@
     }
 
     video {
-      width: 100vw;
-      height: 100vh;
+      max-width: 100%;
+      max-height: 100%;
       display: block;
       pointer-events: none;
       object-fit: contain;
@@ -52,8 +45,8 @@
     /* Fullscreen styles for large screens */
     @media (min-width: 1024px) {
       video {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
       }
     }
@@ -66,7 +59,7 @@
       display: flex;
       justify-content: space-between;
       z-index: 100;
-      /* padding: 20px; */
+      padding: 20px;
     }
 
     /* .controls #doubleBtn {
@@ -141,21 +134,19 @@
 
 <body>
   <div class="video-container">
-    <!-- https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8 -->
 
     <input type="hidden" value="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8" id="stream-link">
 
     <video id="videoPlayer" playsinline muted></video>
 
     <div id="loadingImage">
-      <img
-        src="https://images.unsplash.com/photo-1599579887642-9821ebe3c79a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="Loading...">
+      <img src="/cover-live.png" alt="Loading...">
     </div>
 
     <div class="controls" style="display: flex; flex-direction: row; align-items: center; gap: 20px;">
       <div style="display: flex; align-items: center; gap: 40px;">
         <!-- Play/Pause buttons (toggle based on video state) -->
+
         <img id="playBtn" style="width: 20px; height: 20px;" src="/playBtn.png" alt="Play">
         <img id="pauseBtn" style="width: 20px; height: 20px;" src="/pauseBtn.png" alt="Pause">
       </div>
